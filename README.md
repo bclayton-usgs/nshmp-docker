@@ -3,9 +3,9 @@
 ## Tomcat
 
 ### Supported Tags and Dockerfile Links
-* [8.5-jre8](tomcat/8.5-jre8) - Installs Tomcat 8.5 with Java 8
-* [8.5-jre11](tomcat/8.5-jre11) - Installs Tomcat 8.5 with Java 11
-* [base](tomcat/base) - An extendable Tomcat image based on the 
+* [8.5-jre8](tomcat/8.5-jre8/Dockerfile) - Installs Tomcat 8.5 with Java 8
+* [8.5-jre11](tomcat/8.5-jre11/Dockerfile) - Installs Tomcat 8.5 with Java 11
+* [base](tomcat/base/Dockerfile) - An extendable Tomcat image based on the 
     [usgs/centos](https://hub.docker.com/r/usgs/centos) image.
 
 ### Environment Variables and Defaults
