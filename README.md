@@ -1,6 +1,8 @@
 # A collection of Docker files for use in the nshmp
 
 ## Tomcat
+See the [usgsnshmp/nshmp-tomcat](https://hub.docker.com/r/usgsnshmp/nshmp-tomcat)
+public Docker image.
 
 ### Supported Tags and Dockerfile Links
 * [8.5-jre8](tomcat/8.5-jre8/Dockerfile) - Installs Tomcat 8.5 with Java 8
