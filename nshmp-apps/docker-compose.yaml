@@ -1,0 +1,40 @@
+####
+# Docker compose for all nshmp Docker applications.
+#
+# Run all nshmp docker containers using the Traefix reverse
+# proxy. Exposes all web applications on nshmp.localhost.
+####
+
+version: '3'
+
+services:
+  ####
+  # nshmp-haz-ws image
+  # url: nshmp.localhost/nshmp-haz-ws
+  ####
+  nshmp-haz-ws:
+    image: usgs/nshmp-haz-ws:latest
+    labels:
+      traefik.frontend.rule: Host:nshmp.localhost
+      traefik.frontend.rule: PathPrefix:/nshmp-haz-ws
+
+  ####
+  # nshmp-site-ws image
+  # url: nshmp.localhost/nshmp-site-ws
+  ####
+  nshmp-site-ws:
+    image: usgsnshmp/nshmp-site-ws:latest
+    labels:
+      traefik.frontend.rule: Host:nshmp.localhost
+      traefik.frontend.rule: PathPrefix:/nshmp-site-ws
+
+  ####
+  # Traefik reverse proxy
+  ####
+  reverse-proxy:
+    image: traefik
+    command: --docker
+    ports:
+      - 80:80
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
