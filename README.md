@@ -56,3 +56,33 @@ ARG JAVA_OPTS="-Xms1g -Xmx8g"
 # Extend base image
 FROM usgsnshmp/nshmp-tomcat:base
 ```
+
+
+## Java
+See the [usgsnshmp/nshmp-openjdk](https://hub.docker.com/r/usgsnshmp/nshmp-openjdk)
+public Docker image.
+
+### Supported Tags and Dockerfile Links
+* [jdk8](openjdk/jdk8/Dockerfile) - Install JDK 8
+* [jdk11](openjdk/jdk11/Dockerfile) - Install JDK 11
+* [jre8](openjdk/jre8/Dockerfile) - Install JRE 8
+* [jre11](openjdk/jre11/Dockerfile) - Install JRE 11
+* [base](openjdk/base/Dockerfile) - An extendable Java image based on the 
+    [usgs/centos](https://hub.docker.com/r/usgs/centos) image.
+
+### Environment Variables and Defaults
+```bash
+JAVA_HOME="/usr/local/bin/docker-java-home"
+```
+
+### Extending Base Image
+```docker
+# Java openJDK version to install
+ARG JAVA_VERSION=1.8.0
+
+# Install JDK
+ARG INSTALL_JDK=true
+
+# Extend base image
+FROM usgsnshmp/nshmp-openjdk:base
+```
