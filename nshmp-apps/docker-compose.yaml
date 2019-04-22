@@ -14,6 +14,7 @@ services:
   ####
   nshmp-haz-ws:
     image: usgs/nshmp-haz-ws:latest
+    container_name: nshmp-localhost-nshmp-haz-ws
     labels:
       traefik.frontend.rule: Host:nshmp.localhost
       traefik.frontend.rule: PathPrefix:/nshmp-haz-ws
@@ -24,6 +25,7 @@ services:
   ####
   nshmp-site-ws:
     image: usgsnshmp/nshmp-site-ws:latest
+    container_name: nshmp-localhost-nshmp-site-ws
     labels:
       traefik.frontend.rule: Host:nshmp.localhost
       traefik.frontend.rule: PathPrefix:/nshmp-site-ws
@@ -33,6 +35,7 @@ services:
   ####
   reverse-proxy:
     image: traefik
+    container_name: nshmp-localhost-traefix
     command: --docker
     ports:
       - 80:80
