@@ -33,7 +33,7 @@ services:
   # url: localhost/nshmp/
   ####
   nshmp-apps:
-    image: nshmp-apps
+    image: usgsnshmp/nshmp-apps
     container_name: nshmp-docker__nshmp-apps
     labels:
       traefik.frontend.rule: PathPrefix:/nshmp
