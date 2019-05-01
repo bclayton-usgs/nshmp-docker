@@ -43,7 +43,7 @@ services:
   ####
   reverse-proxy:
     image: traefik
-    container_name: nshmp-localhost__traefix
+    container_name: nshmp-docker__traefix
     command: --docker
     ports:
       - 80:80
