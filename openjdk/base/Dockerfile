@@ -19,8 +19,17 @@ FROM usgs/centos
 # Set author
 LABEL maintainer="Brandon Clayton <bclayton@usgs.gov>"
 
-# Java home
-ENV JAVA_HOME /usr/local/bin/docker-java-home
+# Copy over entrypoint
+COPY docker-entrypoint.sh .
+
+# JVM root path
+ENV JVM_ROOT /usr/lib/jvm
+
+# Java install home
+ENV JAVA_HOME ${JVM_ROOT}/java
+
+# Update path with Java
+ENV PATH ${PATH}:${JAVA_HOME}/bin
 
 # Java version to install
 ONBUILD ARG JAVA_VERSION
@@ -28,10 +37,5 @@ ONBUILD ARG JAVA_VERSION
 # Whether to install JDK or just JRE
 ONBUILD ARG INSTALL_JDK
 
-# Install Java
-ONBUILD RUN yum update -y \
-  &&  if [ ${INSTALL_JDK} = true ]; then \
-        yum install -y java-${JAVA_VERSION}-openjdk-devel; \
-      else \
-        yum install -y java-${JAVA_VERSION}-openjdk; \
-      fi
+# Run entrypoint script
+ONBUILD RUN bash docker-entrypoint.sh
