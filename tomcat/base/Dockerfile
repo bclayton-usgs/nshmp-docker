@@ -42,6 +42,9 @@ ENV TOMCAT_WEBAPPS ${CATALINA_HOME}/webapps
 # Tomcat source URL
 ENV TOMCAT_SOURCE http://archive.apache.org/dist/tomcat
 
+# Set LANG
+ENV LANG en_US.UTF-8
+
 # Tomcat version to install
 ONBUILD ARG TOMCAT_MAJOR
 ONBUILD ARG TOMCAT_VERSION
