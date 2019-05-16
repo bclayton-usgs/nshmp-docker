@@ -45,6 +45,12 @@ ENV TOMCAT_SOURCE http://archive.apache.org/dist/tomcat
 # Set LANG
 ENV LANG en_US.UTF-8
 
+# JVM root path
+ENV JVM_ROOT /usr/lib/jvm
+
+# Java install home
+ENV JAVA_HOME ${JVM_ROOT}/java
+
 # Tomcat version to install
 ONBUILD ARG TOMCAT_MAJOR
 ONBUILD ARG TOMCAT_VERSION
