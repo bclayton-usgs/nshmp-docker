@@ -22,7 +22,7 @@
 #   TOMCAT_SOURCE - The Tomcat source URL to download
 #   TOMCAT_WEBAPPS - The Tomcat webapps directory path
 ####
-FROM usgsnshmp/nshmp-centos
+FROM usgsnshmp/centos
 
 # Set author
 LABEL maintainer="Brandon Clayton <bclayton@usgs.gov>"

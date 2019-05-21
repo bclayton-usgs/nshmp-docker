@@ -14,7 +14,7 @@
 # Environment Variables:
 #   JAVA_HOME - Java home
 ####
-FROM usgsnshmp/nshmp-centos
+FROM usgsnshmp/centos
 
 # Set author
 LABEL maintainer="Brandon Clayton <bclayton@usgs.gov>"
