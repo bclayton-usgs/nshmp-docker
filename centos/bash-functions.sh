@@ -6,12 +6,12 @@
 set -o errexit;
 set -o errtrace;
 
-readonly LOG_FILE="bash-functions.log";
+readonly CENTOS_LOG_FILE="bash-functions.log";
 
 ####
 # Download a repository from Github.
 # Globals:
-#   (string) LOG_FILE - The log file
+#   (string) CENTOS_LOG_FILE - The log file
 # Arguments:
 #   (string) user - The Github user
 #   (string) repo - The project to download
@@ -21,7 +21,7 @@ readonly LOG_FILE="bash-functions.log";
 ####
 download_repo() {
   # Set trap for uncaught errors
-  trap 'error_exit "${BASH_COMMAND}" "$(< ${LOG_FILE})"' ERR;
+  trap 'error_exit "${BASH_COMMAND}" "$(< ${CENTOS_LOG_FILE})"' ERR;
 
   local usage="download_repo <user> <repo> <version>";
 
@@ -32,8 +32,8 @@ download_repo() {
 
   printf "\n Downloading [${url}] \n\n";
 
-  curl -L ${url} | tar -xz 2> ${LOG_FILE} || \
-      error_exit "Could not download [${url}]" "$(< ${LOG_FILE})" "${usage}";
+  curl -L ${url} | tar -xz 2> ${CENTOS_LOG_FILE} || \
+      error_exit "Could not download [${url}]" "$(< ${CENTOS_LOG_FILE})" "${usage}";
 
   mv ${repo}-${version#v*} ${repo};
 }
