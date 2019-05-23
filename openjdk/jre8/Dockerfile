@@ -15,4 +15,4 @@ ARG INSTALL_JDK=false
 # From Image: usgsnshmp/nshmp-java:base
 # Description: Install Java JRE 8 from nshmp-openjdk base image.
 ####
-FROM usgsnshmp/nshmp-openjdk:base
+FROM usgsnshmp/openjdk:base

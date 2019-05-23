@@ -15,4 +15,4 @@ ARG INSTALL_JDK=true
 # From Image: usgsnshmp/nshmp-java:base
 # Description: Install Java openJDK 11 from nshmp-openjdk base image.
 ####
-FROM usgsnshmp/nshmp-openjdk:base
+FROM usgsnshmp/openjdk:base
