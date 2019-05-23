@@ -24,4 +24,4 @@ ARG JAVA_OPTS="-Xms1g -Xmx8g"
 # From image: usgsnshmp/nshmp-tomcat:base
 # Description: Build Tomcat 8.5 with Java 8 from nshmp-tomcat base image.
 ####
-FROM usgsnshmp/nshmp-tomcat:base
+FROM usgsnshmp/tomcat:base
