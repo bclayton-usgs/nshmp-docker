@@ -6,7 +6,8 @@
 set -o errexit;
 set -o errtrace;
 
-readonly CENTOS_LOG_FILE="bash-functions.log";
+readonly CENTOS_LOG_FILE="/var/log/bash-functions.log";
+touch ${CENTOS_LOG_FILE};
 
 ####
 # Download a repository from Github.
@@ -21,9 +22,6 @@ readonly CENTOS_LOG_FILE="bash-functions.log";
 #   None
 ####
 download_repo() {
-  # Set trap for uncaught errors
-  trap 'error_exit "${BASH_COMMAND}" "$(< ${CENTOS_LOG_FILE})"' ERR;
-
   local usage="download_repo <user> <repo> <version>";
 
   local user=${1};
@@ -54,7 +52,7 @@ download_repo() {
 # Globals:
 #   None
 # Arguments:
-#   (string) message - The error message
+#   (string) err - The error message
 #   (string) logs - The log for the error
 #   (string) usage - The Docker usage
 # Returns:
@@ -66,7 +64,7 @@ error_exit() {
   local usage="${3}";
 
   local message="
-    nshmp-haz Docker error:
+    Error:
     ${err}
 
     ----------
