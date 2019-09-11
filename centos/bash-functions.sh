@@ -16,6 +16,7 @@ readonly CENTOS_LOG_FILE="bash-functions.log";
 #   (string) user - The Github user
 #   (string) repo - The project to download
 #   (string) version - The version to download
+#   (string) directory - The direcotry name for repo download
 # Returns:
 #   None
 ####
@@ -28,14 +29,19 @@ download_repo() {
   local user=${1};
   local repo=${2};
   local version=${3};
+  local directory=${4};
   local url="https://github.com/${user}/${repo}/archive/${version}.tar.gz";
 
   printf "\n Downloading [${url}] \n\n";
 
+  if [ -z "${directory}" ]; then
+    directory=${repo};
+  fi
+
   curl -L ${url} | tar -xz 2> ${CENTOS_LOG_FILE} || \
       error_exit "Could not download [${url}]" "$(< ${CENTOS_LOG_FILE})" "${usage}";
 
-  mv ${repo}-${version#v*} ${repo};
+  mv ${repo}-${version#v*} ${directory};
 }
 
 ####
