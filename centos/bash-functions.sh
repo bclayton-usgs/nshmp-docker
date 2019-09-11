@@ -32,6 +32,11 @@ download_repo() {
   local directory=${4};
   local url="https://github.com/${user}/${repo}/archive/${version}.tar.gz";
 
+  if [ ${version} == "null" ]; then
+    printf "\n Skipping download of [${user}/${repo}]\n";
+    return;
+  fi
+
   printf "\n Downloading [${url}] \n\n";
 
   if [ -z "${directory}" ]; then
