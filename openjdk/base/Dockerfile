@@ -31,9 +31,6 @@ ENV JAVA_HOME ${JVM_ROOT}/java
 # Update path with Java
 ENV PATH ${PATH}:${JAVA_HOME}/bin
 
-# Set LANG
-ENV LANG en_US.UTF-8
-
 # Java version to install
 ONBUILD ARG JAVA_VERSION
 
